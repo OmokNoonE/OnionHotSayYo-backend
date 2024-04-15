@@ -12,8 +12,9 @@ import java.time.LocalDateTime;
 @ToString
 public class PostListByCategoryDTO {
 
-    private Integer categoryId;
+    private Integer postId;
     private String title;
-    private LocalDateTime postedDate;
     private int hits;
+    private String memberId;
+    private LocalDateTime postedDate;
 }
