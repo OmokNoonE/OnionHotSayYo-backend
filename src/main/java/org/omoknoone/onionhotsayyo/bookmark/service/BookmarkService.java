@@ -12,4 +12,7 @@ public interface BookmarkService {
 
 	// 내가 북마크한 게시글 목록 조회
 	List<Bookmark> findBookmarkSByMemberId(String memberId);
+
+	// 북마크 중인지 확인
+	boolean existsBookmark(BookmarkDTO bookmarkDTO);
 }
