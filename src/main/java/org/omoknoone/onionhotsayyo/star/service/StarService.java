@@ -13,4 +13,7 @@ public interface StarService {
 	// 내가 좋아요한 게시글 목록 조회
 	List<MyStarPostListDTO> findLikedPostsByMemberId(String memberId);
 
+	// 좋아요 or 싫어요 여부 조회
+	Integer existsStar(StarDTO starDTO);
+
 }

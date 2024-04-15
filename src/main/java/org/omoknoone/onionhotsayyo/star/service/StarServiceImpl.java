@@ -1,6 +1,8 @@
 package org.omoknoone.onionhotsayyo.star.service;
 
 import org.modelmapper.ModelMapper;
+import org.omoknoone.onionhotsayyo.follow.aggregate.Follow;
+import org.omoknoone.onionhotsayyo.follow.dto.FollowDTO;
 import org.omoknoone.onionhotsayyo.star.aggregate.Star;
 import org.omoknoone.onionhotsayyo.star.dto.MyStarPostListDTO;
 import org.omoknoone.onionhotsayyo.star.dto.StarDTO;
@@ -27,16 +29,20 @@ public class StarServiceImpl implements StarService{
 	@Transactional
 	@Override
 	public void addStar(StarDTO starDTO) {
+
 		Star star = modelMapper.map(starDTO, Star.class);
 		starRepository.save(star);
+
 	}
 
 	// 좋아요(또는 싫어요) 삭제
 	@Transactional
 	@Override
 	public void removeStar(StarDTO starDTO) {
+
 		Star star = modelMapper.map(starDTO, Star.class);
 		starRepository.delete(star);
+
 	}
 
 	// 회원이 좋아요를 누른 게시물 목록 조회
@@ -45,4 +51,23 @@ public class StarServiceImpl implements StarService{
 	public List<MyStarPostListDTO> findLikedPostsByMemberId(String memberId) {
 		return starRepository.findLikedPostsByMemberId(memberId);
 	}
+
+	// 좋아요 / 싫어요 여부 확인
+	@Override
+	public Integer existsStar(StarDTO starDTO) {
+		List<Star> starList = starRepository.findAll();
+
+		for (Star star : starList) {
+			if (star.getMemberId().equals(starDTO.getMemberId()) &&
+				star.getPostId().equals(starDTO.getPostId())) {
+				return star.isStatus() ? 1 : 0;			// 1: 좋아요 누른 상태 / 0: 싫어요 누른 상태
+			}
+		}
+		return 2;		// 아무 것도 안 누른 상태
+	}
+
+
+
+
+
 }
