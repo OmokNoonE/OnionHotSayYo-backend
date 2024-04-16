@@ -7,4 +7,6 @@ import java.util.List;
 public interface NationalityService {
 
     List<NationalityDTO> viewNationality();
+
+    String viewLanguage(String nationalityId);
 }

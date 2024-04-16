@@ -3,6 +3,7 @@ package org.omoknoone.onionhotsayyo.member.security;
 import jakarta.servlet.Filter;
 import org.omoknoone.onionhotsayyo.member.service.AuthService;
 import org.omoknoone.onionhotsayyo.member.service.MemberService;
+import org.omoknoone.onionhotsayyo.nationality.service.NationalityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,6 +26,7 @@ public class WebSecurity {
 
     private final MemberService memberService;
     private final AuthService authService;
+    private final NationalityService nationalityService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final Environment environment;
     private final JwtUtil jwtUtil;
@@ -32,12 +34,13 @@ public class WebSecurity {
     private final CorsConfig corsConfig;
 
     @Autowired
-    public WebSecurity(MemberService memberService, AuthService authService,
+    public WebSecurity(MemberService memberService, AuthService authService, NationalityService nationalityService,
                        BCryptPasswordEncoder bCryptPasswordEncoder,
                        Environment environment,
                        JwtUtil jwtUtil, JwtTokenProvider jwtTokenProvider, CorsConfig corsConfig) {
         this.memberService = memberService;
         this.authService = authService;
+        this.nationalityService = nationalityService;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
         this.environment = environment;
         this.jwtUtil = jwtUtil;
@@ -83,7 +86,7 @@ public class WebSecurity {
 
     /* 설명. 인증(Authentication)용 메소드 */
     private Filter getAuthenticationFilter(AuthenticationManager authenticationManager) {
-        return new AuthenticationFilter(authenticationManager, memberService, authService, environment, jwtTokenProvider);
+        return new AuthenticationFilter(authenticationManager, memberService, nationalityService, authService, environment, jwtTokenProvider);
     }
 
 }
