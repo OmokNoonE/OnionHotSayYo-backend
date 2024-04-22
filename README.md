@@ -60,12 +60,12 @@
 <br>
 
 ## 🎨 DDD
-  🔗 [DDD](https://github.com/beyond-sw-camp/be04-4th-OmokNoonE-OnionHotSayYo/wiki/%F0%9F%8E%A8-DDD)
+  🔗 [DDD](https://github.com/OmokNoonE/OnionHotSayYo-backend/wiki/%F0%9F%8E%A8-DDD)
 <br>
 
 ## 🗃️ DDL
 
- 🔗 <a href="https://github.com/beyond-sw-camp/be04-4th-OmokNoonE-OnionHotSayYo/blob/main/DB/DDL.sql">OnionHotSayYo_DDL</a>
+ 🔗 <a href="https://github.com/OmokNoonE/OnionHotSayYo-backend/blob/main/DB/DDL.sql">OnionHotSayYo_DDL</a>
 
 <br>
 
@@ -81,7 +81,7 @@
 
 
 ### 빌드 및 배포 문서
- 🔗 [빌드 및 배포 문서](https://github.com/beyond-sw-camp/be04-4th-OmokNoonE-OnionHotSayYo/wiki/%F0%9F%9B%A0%EF%B8%8F-CI%EF%BC%8FCD)
+ 🔗 [빌드 및 배포 문서](https://github.com/OmokNoonE/OnionHotSayYo-backend/wiki/%F0%9F%9B%A0%EF%B8%8F-CI%EF%BC%8FCD)
 
 <br>
 
